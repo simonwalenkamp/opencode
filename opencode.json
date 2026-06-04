@@ -1,5 +1,48 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "enabled_providers": [
+    "lego-anthropic", "lego-openai", "github-copilot"
+  ],
+  "provider": {
+    "lego-anthropic": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "LEGO Anthropic",
+      "options": {
+        "baseURL": "https://models.assistant.legogroup.io/anthropic/v1",
+        "apiKey": "{env:ANTHROPIC_AUTH_TOKEN}",
+        "headers": {
+          "api-key": "{env:ANTHROPIC_AUTH_TOKEN}"
+        }
+      },
+      "models": {
+        "claude-sonnet-4-6": {
+          "id": "anthropic.claude-sonnet-4-6",
+          "name": "LEGO Sonnet 4.6"
+        },
+        "claude-opus-4-8": {
+          "id": "anthropic.claude-opus-4-8",
+          "name": "LEGO Opus 4.8"
+        }
+      }
+    },
+    "lego-openai": {
+      "npm": "@ai-sdk/openai",
+      "name": "LEGO OpenAI",
+      "options": {
+        "baseURL": "https://models.assistant.legogroup.io/openai",
+        "apiKey": "{env:CODEX_API_KEY}",
+        "headers": {
+          "api-key": "{env:CODEX_API_KEY}"
+        }
+      },
+      "models": {
+        "gpt-5.5": {
+          "id": "gpt-5.5-2026-04-24",
+          "name": "LEGO GPT-5.5"
+        }
+      }
+    }
+  },
   "mcp": {
     "context7": {
       "type": "remote",
