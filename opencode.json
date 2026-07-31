@@ -1,27 +1,28 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "enabled_providers": [
-    "lego-anthropic", "lego-openai", "github-copilot"
+    "lego-anthropic",
+    "lego-openai",
+    "github-copilot"
   ],
   "provider": {
     "lego-anthropic": {
       "npm": "@ai-sdk/anthropic",
       "name": "LEGO Anthropic",
       "options": {
-        "baseURL": "https://models.assistant.legogroup.io/anthropic/v1",
-        "apiKey": "{env:ANTHROPIC_AUTH_TOKEN}",
-        "headers": {
-          "api-key": "{env:ANTHROPIC_AUTH_TOKEN}"
-        }
+        "baseURL": "https://api.genai.thelegogroup.com/anthropic/v1",
+        "authToken": "{env:GENAI_CREDENTIAL}"
       },
       "models": {
-        "claude-sonnet-4-6": {
-          "id": "anthropic.claude-sonnet-4-6",
-          "name": "LEGO Sonnet 4.6"
+        "claude-sonnet-5": {
+          "id": "eu.anthropic.claude-sonnet-5",
+          "name": "LEGO Sonnet 4.6",
+          "reasoning": true
         },
         "claude-opus-4-8": {
-          "id": "anthropic.claude-opus-4-8",
-          "name": "LEGO Opus 4.8"
+          "id": "eu.anthropic.claude-opus-4-8",
+          "name": "LEGO Opus 4.8",
+          "reasoning": true
         }
       }
     },
@@ -29,16 +30,19 @@
       "npm": "@ai-sdk/openai",
       "name": "LEGO OpenAI",
       "options": {
-        "baseURL": "https://models.assistant.legogroup.io/openai",
-        "apiKey": "{env:CODEX_API_KEY}",
-        "headers": {
-          "api-key": "{env:CODEX_API_KEY}"
-        }
+        "baseURL": "https://api.genai.thelegogroup.com/openai/v1",
+        "apiKey": "{env:GENAI_CREDENTIAL}"
       },
       "models": {
         "gpt-5.5": {
           "id": "gpt-5.5-2026-04-24",
-          "name": "LEGO GPT-5.5"
+          "name": "LEGO GPT-5.5",
+          "reasoning": true
+        },
+        "gpt-5.6-sol": {
+          "id": "gpt-5.6-sol-2026-07-09",
+          "name": "LEGO GPT-5.6-sol",
+          "reasoning": true
         }
       }
     }
