@@ -1,6 +1,95 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "enabled_providers": ["github-copilot"],
+"permission": {
+    "read": {
+      "*": "ask",
+
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.envrc": "deny",
+
+      "*/.ssh/*": "deny",
+      "*/.aws/*": "deny",
+      "*/.gnupg/*": "deny",
+      "*/.kube/config": "deny",
+      "*/.docker/config.json": "deny",
+      "*/.config/gh/hosts.yml": "deny",
+      "*/.local/share/opencode/auth.json": "deny",
+      "*/.netrc": "deny",
+      "*/.npmrc": "deny",
+    },
+
+    "edit": {
+      "*": "ask",
+
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.envrc": "deny",
+
+      "*/.ssh/*": "deny",
+      "*/.aws/*": "deny",
+      "*/.gnupg/*": "deny",
+      "*/.kube/config": "deny",
+      "*/.docker/config.json": "deny",
+      "*/.config/gh/hosts.yml": "deny",
+      "*/.local/share/opencode/auth.json": "deny",
+      "*/.netrc": "deny",
+      "*/.npmrc": "deny",
+    },
+
+    "external_directory": {
+      "*": "ask",
+
+      "~/.cache/coursier/*": "allow",
+      "~/.local/share/opencode/tool-output/*": "allow",
+
+      "~/.ssh/*": "deny",
+      "~/.aws/*": "deny",
+      "~/.gnupg/*": "deny",
+      "~/.kube/*": "deny",
+      "~/.docker/*": "deny",
+      "~/.config/gh/*": "deny",
+      "~/.local/share/opencode/auth.json": "deny"
+    },
+
+    "bash": {
+      "*.env*": "deny",
+      "*/.ssh/*": "deny",
+      "*/.aws/*": "deny",
+      "*/.gnupg/*": "deny",
+      "*/.kube/config*": "deny",
+      "*/.docker/config.json*": "deny",
+      "*/.config/gh/hosts.yml*": "deny",
+      "*/.local/share/opencode/auth.json*": "deny",
+
+      "sudo *": "deny",
+      "rm *": "deny",
+      "git reset --hard *": "deny",
+      "git clean *": "deny",
+      "git restore *": "deny",
+      "git checkout -- *": "deny",
+      "git stash drop *": "deny",
+      "git reflog expire *": "deny",
+      "docker system prune *": "deny",
+      "gh repo delete *": "deny",
+      "terraform destroy *": "deny",
+
+      "git push *": "ask",
+      "gh pr merge *": "ask",
+      "gh release create *": "ask",
+      "terraform apply *": "ask",
+      "kubectl apply *": "ask",
+      "kubectl delete *": "ask",
+
+      "git push --force *": "deny",
+      "git push --force-with-lease *": "deny",
+      "git push -f *": "deny",
+      "git push * --force*": "deny",
+      "git push * --force-with-lease*": "deny",
+      "git push * -f *": "deny"
+    }
+  },
   "mcp": {
     "context7": {
       "type": "remote",
