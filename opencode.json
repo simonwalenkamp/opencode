@@ -1,103 +1,153 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "enabled_providers": ["github-copilot"],
-"permission": {
+  "permission": {
     "read": {
-      "*": "ask",
-
       "*.env": "deny",
       "*.env.*": "deny",
       "*.envrc": "deny",
+      "*.zshrc": "deny",
+      "*.trifrost": "deny",
+      "*.trifrost/*": "deny",
 
-      "*/.ssh/*": "deny",
-      "*/.aws/*": "deny",
-      "*/.gnupg/*": "deny",
-      "*/.kube/config": "deny",
-      "*/.docker/config.json": "deny",
-      "*/.config/gh/hosts.yml": "deny",
-      "*/.local/share/opencode/auth.json": "deny",
-      "*/.netrc": "deny",
-      "*/.npmrc": "deny",
+      "*.ssh": "deny",
+      "*.ssh/*": "deny",
+      "*.aws": "deny",
+      "*.aws/*": "deny",
+      "*.gnupg": "deny",
+      "*.gnupg/*": "deny",
+      "*.kube/config": "deny",
+      "*.docker/config.json": "deny",
+      "*.config/gh/hosts.yml": "deny",
+      "*.local/share/opencode/auth.json": "deny",
+      "*.netrc": "deny",
+      "*.npmrc": "deny"
     },
 
     "edit": {
-      "*": "ask",
-
       "*.env": "deny",
       "*.env.*": "deny",
       "*.envrc": "deny",
+      "*.zshrc": "deny",
+      "*.trifrost": "deny",
+      "*.trifrost/*": "deny",
 
-      "*/.ssh/*": "deny",
-      "*/.aws/*": "deny",
-      "*/.gnupg/*": "deny",
-      "*/.kube/config": "deny",
-      "*/.docker/config.json": "deny",
-      "*/.config/gh/hosts.yml": "deny",
-      "*/.local/share/opencode/auth.json": "deny",
-      "*/.netrc": "deny",
-      "*/.npmrc": "deny",
+      "*.ssh": "deny",
+      "*.ssh/*": "deny",
+      "*.aws": "deny",
+      "*.aws/*": "deny",
+      "*.gnupg": "deny",
+      "*.gnupg/*": "deny",
+      "*.kube/config": "deny",
+      "*.docker/config.json": "deny",
+      "*.config/gh/hosts.yml": "deny",
+      "*.local/share/opencode/auth.json": "deny",
+      "*.netrc": "deny",
+      "*.npmrc": "deny"
+    },
+
+    "glob": {
+      "*": "ask",
+      "*.trifrost*": "deny"
+    },
+
+    "grep": "ask",
+
+    "list": {
+      "*.trifrost": "deny",
+      "*.trifrost/*": "deny"
     },
 
     "external_directory": {
-      "*": "ask",
-
-      "~/.cache/coursier/*": "allow",
-      "~/.local/share/opencode/tool-output/*": "allow",
-
+      "*.trifrost": "deny",
+      "*.trifrost/*": "deny",
       "~/.ssh/*": "deny",
       "~/.aws/*": "deny",
       "~/.gnupg/*": "deny",
       "~/.kube/*": "deny",
       "~/.docker/*": "deny",
       "~/.config/gh/*": "deny",
-      "~/.local/share/opencode/auth.json": "deny"
+      "~/.local/share/opencode/*": "deny",
+      "~/.local/share/opencode/tool-output/*": "allow"
     },
 
     "bash": {
+      "*": "ask",
+
       "*.env*": "deny",
-      "*/.ssh/*": "deny",
-      "*/.aws/*": "deny",
-      "*/.gnupg/*": "deny",
-      "*/.kube/config*": "deny",
-      "*/.docker/config.json*": "deny",
-      "*/.config/gh/hosts.yml*": "deny",
-      "*/.local/share/opencode/auth.json*": "deny",
+      "*.zshrc*": "deny",
+      "*.trifrost*": "deny",
+      "*.ssh*": "deny",
+      "*.aws*": "deny",
+      "*.gnupg*": "deny",
+      "*.kube/config*": "deny",
+      "*.docker/config.json*": "deny",
+      "*.config/gh/hosts.yml*": "deny",
+      "*.local/share/opencode/auth.json*": "deny",
+      "*.netrc*": "deny",
+      "*.npmrc*": "deny",
 
+      "sudo": "deny",
       "sudo *": "deny",
+      "*/sudo": "deny",
+      "*/sudo *": "deny",
+      "command sudo": "deny",
+      "command sudo *": "deny",
+      "rm": "deny",
       "rm *": "deny",
-      "git reset --hard *": "deny",
+      "*/rm": "deny",
+      "*/rm *": "deny",
+      "command rm": "deny",
+      "command rm *": "deny",
+      "git reset --hard*": "deny",
+      "git * reset --hard*": "deny",
+      "git clean": "deny",
       "git clean *": "deny",
+      "git * clean": "deny",
+      "git * clean *": "deny",
+      "git restore": "deny",
       "git restore *": "deny",
+      "git * restore": "deny",
+      "git * restore *": "deny",
+      "git checkout --": "deny",
       "git checkout -- *": "deny",
+      "git * checkout --": "deny",
+      "git * checkout -- *": "deny",
+      "git stash drop": "deny",
       "git stash drop *": "deny",
+      "git * stash drop": "deny",
+      "git * stash drop *": "deny",
+      "git reflog expire": "deny",
       "git reflog expire *": "deny",
-      "docker system prune *": "deny",
-      "gh repo delete *": "deny",
-      "terraform destroy *": "deny",
+      "git * reflog expire": "deny",
+      "git * reflog expire *": "deny",
+      "docker system prune*": "deny",
+      "docker * system prune*": "deny",
+      "gh repo delete*": "deny",
+      "gh * repo delete*": "deny",
+      "terraform destroy*": "deny",
+      "terraform * destroy*": "deny",
 
-      "git push *": "ask",
-      "gh pr merge *": "ask",
-      "gh release create *": "ask",
-      "terraform apply *": "ask",
-      "kubectl apply *": "ask",
-      "kubectl delete *": "ask",
+      "*kontext*": "deny",
+      "*ansible-vault*": "deny",
+      "*eval-env*": "deny",
 
+      "git push --force": "deny",
       "git push --force *": "deny",
+      "git push --force-with-lease": "deny",
       "git push --force-with-lease *": "deny",
+      "git push -f": "deny",
       "git push -f *": "deny",
       "git push * --force*": "deny",
       "git push * --force-with-lease*": "deny",
-      "git push * -f *": "deny"
-    }
-  },
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      },
-      "enabled": true
+      "git push * -f": "deny",
+      "git push * -f *": "deny",
+      "git * push --force*": "deny",
+      "git * push * --force*": "deny",
+      "git * push -f": "deny",
+      "git * push -f *": "deny",
+      "git * push * -f": "deny",
+      "git * push * -f *": "deny"
     }
   }
 }
