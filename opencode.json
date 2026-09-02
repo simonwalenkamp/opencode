@@ -1,6 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "enabled_providers": ["github-copilot"],
+  "enabled_providers": [
+    "github-copilot"
+  ],
+  "agent": {
+    "explore": {
+      "model": "github-copilot/gpt-5.6-luna",
+      "variant": "low"
+    }
+  },
   "permission": {
     "read": {
       "*.env": "deny",
@@ -12,43 +20,66 @@
       "trifrost/*": "deny",
       "*/trifrost": "deny",
       "*/trifrost/*": "deny",
-
       "*.ssh": "deny",
       "*.ssh/*": "deny",
       "*.aws": "deny",
       "*.aws/*": "deny",
       "*.gnupg": "deny",
       "*.gnupg/*": "deny",
-      "*.kube/config": "deny",
-      "*.docker/config.json": "deny",
-      "*.config/gh/hosts.yml": "deny",
+      "*.kube": "deny",
+      "*.kube/*": "deny",
+      "*.docker": "deny",
+      "*.docker/*": "deny",
+      "*.config/gh": "deny",
+      "*.config/gh/*": "deny",
       "*.local/share/opencode/auth.json": "deny",
-      "*.netrc": "deny"
+      "*.netrc": "deny",
+      "*.npmrc": "deny",
+      "*.pypirc": "deny",
+      "*.git-credentials": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.p12": "deny",
+      "*.pfx": "deny",
+      "*id_rsa*": "deny",
+      "*id_ecdsa*": "deny",
+      "*id_ed25519*": "deny"
     },
-
     "edit": {
       "*.env": "deny",
       "*.env.*": "deny",
+      "*.env.example": "allow",
       "*.envrc": "deny",
       "*.zshrc": "deny",
       "trifrost": "deny",
       "trifrost/*": "deny",
       "*/trifrost": "deny",
       "*/trifrost/*": "deny",
-
       "*.ssh": "deny",
       "*.ssh/*": "deny",
       "*.aws": "deny",
       "*.aws/*": "deny",
       "*.gnupg": "deny",
       "*.gnupg/*": "deny",
-      "*.kube/config": "deny",
-      "*.docker/config.json": "deny",
-      "*.config/gh/hosts.yml": "deny",
+      "*.kube": "deny",
+      "*.kube/*": "deny",
+      "*.docker": "deny",
+      "*.docker/*": "deny",
+      "*.config/gh": "deny",
+      "*.config/gh/*": "deny",
       "*.local/share/opencode/auth.json": "deny",
-      "*.netrc": "deny"
+      "*.netrc": "deny",
+      "*.npmrc": "deny",
+      "*.pypirc": "deny",
+      "*.git-credentials": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.p12": "deny",
+      "*.pfx": "deny",
+      "*id_rsa*": "deny",
+      "*id_ecdsa*": "deny",
+      "*id_ed25519*": "deny"
     },
-
     "external_directory": {
       "*/trifrost/*": "deny",
       "~/.ssh/*": "deny",
@@ -58,33 +89,7 @@
       "~/.docker/*": "deny",
       "~/.config/gh/*": "deny"
     },
-
     "bash": {
-      "sudo *": "deny",
-      "*/sudo *": "deny",
-      "command sudo *": "deny",
-      "rm *": "deny",
-      "*/rm *": "deny",
-      "command rm *": "deny",
-      "git reset --hard*": "deny",
-      "git * reset --hard*": "deny",
-      "git clean *": "deny",
-      "git * clean *": "deny",
-      "git restore *": "deny",
-      "git * restore *": "deny",
-      "git checkout -- *": "deny",
-      "git * checkout -- *": "deny",
-      "git stash drop *": "deny",
-      "git * stash drop *": "deny",
-      "git reflog expire *": "deny",
-      "git * reflog expire *": "deny",
-      "docker system prune*": "deny",
-      "docker * system prune*": "deny",
-      "gh repo delete*": "deny",
-      "gh * repo delete*": "deny",
-      "terraform destroy*": "deny",
-      "terraform * destroy*": "deny",
-
       "kontext *": "deny",
       "*/kontext *": "deny",
       "command kontext *": "deny",
@@ -94,17 +99,23 @@
       "eval-env *": "deny",
       "*/eval-env *": "deny",
       "command eval-env *": "deny",
-
-      "git push --force *": "deny",
-      "git push --force-with-lease *": "deny",
-      "git push -f *": "deny",
-      "git push * --force*": "deny",
-      "git push * --force-with-lease*": "deny",
-      "git push * -f *": "deny",
-      "git * push --force*": "deny",
-      "git * push * --force*": "deny",
-      "git * push -f *": "deny",
-      "git * push * -f *": "deny"
+      "env": "deny",
+      "printenv*": "deny",
+      "*--show-token*": "deny",
+      "gh auth token*": "deny",
+      "aws configure get*": "deny",
+      "security find-generic-password*": "deny",
+      "security find-internet-password*": "deny",
+      "security dump-keychain*": "deny",
+      "*.ssh/*": "deny",
+      "*.gnupg/*": "deny",
+      "*.aws/credentials*": "deny",
+      "*.netrc*": "deny",
+      "*.git-credentials*": "deny",
+      "*id_rsa*": "deny",
+      "*id_ecdsa*": "deny",
+      "*id_ed25519*": "deny",
+      "*share/opencode/auth.json*": "deny"
     }
   },
   "mcp": {
